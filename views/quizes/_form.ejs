@@ -4,11 +4,11 @@
 <input type="text" id="resp" name="quiz[respuesta]" value="<%= quiz.respuesta%>"/> <p>
 <label class="rem">Temática:</label>
 <select name="quiz[tematica]" id="tema">
-    <option value="Otro" <%=(quiz.tematica === 'otro') ? 'selected' : ''%> >Otro</option>
-    <option value="Humanidades" <%=(quiz.tematica === 'humanidades') ? 'selected' : ''%>>Humanidades</option>
-    <option value="Ocio" <%=(quiz.tematica === 'ocio') ? 'selected' : ''%>>Ocio</option>
-    <option value="Ciencia" <%=(quiz.tematica === 'ciencia') ? 'selected' : ''%>>Ciencia</option>
-    <option value="Tecnología" <%=(quiz.tematica === 'tecnologia') ? 'selected' : ''%>>Tecnologia</option>
+    <option value="Otro" <%=(quiz.tematica === 'Otro') ? 'selected' : ''%> >Otro</option>
+    <option value="Humanidades" <%=(quiz.tematica === 'Humanidades') ? 'selected' : ''%>>Humanidades</option>
+    <option value="Ocio" <%=(quiz.tematica === 'Ocio') ? 'selected' : ''%>>Ocio</option>
+    <option value="Ciencia" <%=(quiz.tematica === 'Ciencia') ? 'selected' : ''%>>Ciencia</option>
+    <option value="Tecnología" <%=(quiz.tematica === 'Tecnología') ? 'selected' : ''%>>Tecnologia</option>
 </select>
 <a href="/quizes"><button type="button">Cancelar</button></a>
 <input type="submit" value="Salvar">

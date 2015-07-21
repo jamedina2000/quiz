@@ -30,10 +30,18 @@ var sequelize = new Sequelize(DB_name, user, pwd,
 //Importar la definicion de la tabla Quiz en quiz.js
 var Quiz = sequelize.import(path.join(__dirname,'quiz'));
 
+//Importar la definicion de la tabla Comment en quiz.js
+var Comment = sequelize.import(path.join(__dirname,'comment'));
+
+//Definir Relacion 1 a N
+Comment.belongsTo(Quiz);
+Quiz.hasMany(Comment);
+
 exports.Quiz = Quiz; //exportar la definicion de tabla Quiz
+exports.Comment = Comment //exportar la definicion de tabla Comment
 
 //sequelize.sync crea a inicializa tabla de preguntas en DB
-sequelize.sync().then(function() {
+/*sequelize.sync().then(function() {
 //success(...) ejecuta el manejador una vez creada la tabla
 	Quiz.count().then(function (count){
 		if(count === 0) {
@@ -48,4 +56,10 @@ sequelize.sync().then(function() {
 			.then(function(){console.log('Base de datos actualizada')});	
 		};
 	});
-});
+});*/
+
+sequelize.sync().then(function() {
+	//success(...) ejecuta el manejador una vez creada la tabla
+	console.log('Base de datos creada');
+	}
+);
