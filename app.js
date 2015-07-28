@@ -46,6 +46,23 @@ app.use(function(req, res, next) {
     next();
 });
 
+app.use(function(req, res, next) {
+    if (req.session.user) {
+        var actual = (new Date()).getTime();
+        var ultimo = req.session.user.tacceso;
+
+        if ((actual - ultimo) > (2 * 60000)) {
+            delete req.session.user;
+            res.render('sessions/new', {errors: [{"message": "sesión caducada, login otra vez"}]});
+
+        } else {
+            req.session.user.tacceso = (new Date()).getTime();
+        }
+    }
+    next();
+});
+
+
 app.use('/', routes);
 //app.use('/users', users);
 
